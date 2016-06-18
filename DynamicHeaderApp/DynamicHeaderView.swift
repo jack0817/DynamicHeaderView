@@ -47,7 +47,7 @@ public class DynamicHeaderView: UIScrollView {
         self.clipsToBounds = true
         
         let header = UIView()
-        header.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.25)
+        header.backgroundColor = .clearColor()
         self.addTestLabel(header, text: "Header")
         
         let separator = UIView()
@@ -55,13 +55,12 @@ public class DynamicHeaderView: UIScrollView {
         self.addTestLabel(separator, text: "Separator")
         
         let contentContainer = UIView()
-        contentContainer.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.25)
+        contentContainer.backgroundColor = .clearColor()
         
         // MARK: Test Code
         var views: [UIView] = []
         for index in 0 ..< 10 {
             let label = UILabel()
-            label.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.25)
             label.text = "Label \(index + 1)"
             label.textAlignment = .Center
             label.textColor = .whiteColor()

@@ -16,8 +16,17 @@ class ViewController: UIViewController {
         let imageView = UIImageView(image: UIImage(named: "dh_background"))
         imageView.contentMode = .ScaleAspectFill
         
+        let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .Light))
+        blurView.alpha = 0.5
+        
+        let bgView = UIView()
+        bgView.addSubview(imageView)
+        bgView.addSubview(blurView)
+        
+        [imageView, blurView].forEach { v in v.addFillConstraints() }
+        
         let headerView: DynamicHeaderView = UIView.fromNib("DynamicHeaderView")
-        headerView.backgroundView = imageView
+        headerView.backgroundView = bgView
         self.view.addSubview(headerView)
         headerView.addFillConstraints(topGuide: self.topLayoutGuide)
     }
