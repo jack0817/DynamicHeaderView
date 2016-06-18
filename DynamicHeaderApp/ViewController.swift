@@ -12,7 +12,14 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let imageView = UIImageView(image: UIImage(named: "dh_background"))
+        imageView.contentMode = .ScaleAspectFill
+        
+        let headerView: DynamicHeaderView = UIView.fromNib("DynamicHeaderView")
+        headerView.backgroundView = imageView
+        self.view.addSubview(headerView)
+        headerView.addFillConstraints(topGuide: self.topLayoutGuide)
     }
 
     override func didReceiveMemoryWarning() {
